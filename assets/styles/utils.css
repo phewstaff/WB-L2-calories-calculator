@@ -1,0 +1,98 @@
+.blue {
+}
+
+/* Paddings */
+.p-0 {
+  padding: 0px;
+}
+/* Margins */
+
+.m-0 {
+  margin: 0px;
+}
+
+.mt-1 {
+  margin-top: 4px;
+}
+
+.mt-2 {
+  margin-top: 8px;
+}
+
+.mt-3 {
+  margin-top: 12px;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+.mt-5 {
+  margin-top: 24px;
+}
+
+.mt-6 {
+  margin-top: 32px;
+}
+
+.mr-1 {
+  margin-right: 4px;
+}
+
+.mr-2 {
+  margin-right: 8px;
+}
+
+.mr-3 {
+  margin-right: 12px;
+}
+
+/* --------------------------------------------------------------------- */
+
+.text-secondary {
+  color: blue;
+}
+
+/* --------------------------------------------------------------------- */
+
+/* Layout */
+
+.flex {
+  display: flex;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.align-start {
+  align-items: start;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.gap-2 {
+  gap: 8px;
+}
+
+/* --------------------------------------------------------------------- */
