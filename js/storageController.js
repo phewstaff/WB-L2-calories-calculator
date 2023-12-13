@@ -51,4 +51,19 @@ export const storageCtrl = {
   clearItemsFromStorage: () => {
     localStorage.removeItem("items");
   },
+  storeGoal: (goal) => {
+    localStorage.setItem("goal", goal);
+  },
+  getGoalFromStorage: () => {
+    let goal;
+    if (localStorage.getItem("goal") === null) {
+      goal = null;
+    } else {
+      goal = localStorage.getItem("goal");
+    }
+    return goal;
+  },
+  updateGoalStorage: (newGoal) => {
+    localStorage.setItem("goal", newGoal);
+  },
 };

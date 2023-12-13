@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="assets/styles/style.css" />
 
+    <!-- font-awesome (only for icons)  -->
     <link
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
@@ -14,13 +15,18 @@
     />
     <title>Meal & Calorie Tracker</title>
   </head>
+
   <body class="col">
     <!-- Navbar -->
     <nav class="">
+      <label for="progress">Daily goal progress:</label>
+
+      <progress id="progress" max="0" value="0"></progress>
+
       <div class="nav-wrapper">
         <div class="container justify-between row align-center">
           <a href="#" class="logo">calorie tracker</a>
-          <ul class="right">
+          <ul class="">
             <li><a href="#" class="clear-btn">Clear All</a></li>
           </ul>
         </div>
@@ -28,17 +34,32 @@
     </nav>
 
     <div class="container">
+      <!-- modal -->
+      <dialog id="daily-goal">
+        <form method="dialog">
+          <section>
+            <label for="daily-goal-input">Type your daily calories goal:</label>
+            <input type="number" id="daily-goal-input" />
+          </section>
+          <menu>
+            <button id="cancel-dialog" type="reset">Cancel</button>
+            <button id="add-daily-goal" type="submit">Confirm</button>
+          </menu>
+        </form>
+      </dialog>
+
       <!-- Form Card -->
+
       <div class="card">
         <div class="card-content">
           <span class="card-title">Add Meal / Food Item</span>
           <form class="col">
-            <div class="row">
-              <div class="input-field col s6">
+            <div class="col">
+              <div class="input-field col">
                 <input type="text" placeholder="Add Item" id="item-name" />
                 <label for="item-name">Meal</label>
               </div>
-              <div class="input-field col s6">
+              <div class="input-field col">
                 <input
                   type="number"
                   placeholder="Add Calories"
@@ -46,16 +67,16 @@
                 />
                 <label for="item-calories">Calories</label>
               </div>
-              <button class="add-btn btn blue darken-3">
+              <button class="add-btn blue">
                 <i class="fa fa-plus"></i> Add Meal
               </button>
-              <button class="update-btn btn orange">
+              <button class="update-btn orange">
                 <i class="fa fa-pencil-square-o"></i> Update Meal
               </button>
-              <button class="delete-btn btn red">
+              <button class="delete-btn red">
                 <i class="fa fa-remove"></i> Delete Meal
               </button>
-              <button class="back-btn btn grey pull-right">
+              <button class="back-btn grey">
                 <i class="fa fa-chevron-circle-left"></i> Back
               </button>
             </div>
@@ -65,6 +86,9 @@
 
       <!-- Calorie Count -->
       <h3 class="">Total Calories: <span class="total-calories">0</span></h3>
+      <button id="goal-button" class="goal-button">
+        goal for today: <span class="goal">0</span> calories
+      </button>
 
       <!-- Item List -->
       <ul id="item-list" class="collection">
@@ -91,6 +115,6 @@
       </ul>
     </div>
 
-    <script type="module" src="/js/main.mjs"></script>
+    <script type="module" src="/js/main.js"></script>
   </body>
 </html>

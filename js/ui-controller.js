@@ -1,5 +1,7 @@
 // Контроллер для отображения данных на странице
 
+import { ItemCtrl } from "./item-controller";
+
 export const UICtrl = (function () {
   const UISelectors = {
     itemList: "#item-list",
@@ -12,6 +14,10 @@ export const UICtrl = (function () {
     itemNameInput: "#item-name",
     itemCaloriesInput: "#item-calories",
     totalCalories: ".total-calories",
+    dailyGoalInput: "#daily-goal-input",
+    addDailyGoalBtn: "#add-daily-goal",
+    goal: ".goal",
+    progress: "#progress",
   };
 
   // Общие методы для отображения
@@ -59,7 +65,6 @@ export const UICtrl = (function () {
     updateListItem: (item) => {
       let listItems = document.querySelectorAll(UISelectors.listItems);
 
-      с;
       listItems = Array.from(listItems);
 
       listItems.forEach((listItem) => {
@@ -110,6 +115,26 @@ export const UICtrl = (function () {
       document.querySelector(UISelectors.totalCalories).textContent =
         totalCalories;
     },
+
+    getGoalInput: () => {
+      return document.querySelector(UISelectors.dailyGoalInput).value;
+    },
+    showDailyGoal: (goal) => {
+      document.querySelector(UISelectors.goal).textContent = goal;
+    },
+
+    showProgress: (max, current) => {
+      const progressElement = document.querySelector(UISelectors.progress);
+
+      if (max !== undefined) {
+        progressElement.max = max;
+      }
+
+      if (current !== undefined) {
+        progressElement.value = current;
+      }
+    },
+
     clearEditState: () => {
       UICtrl.clearInput();
       document.querySelector(UISelectors.updateBtn).style.display = "none";
