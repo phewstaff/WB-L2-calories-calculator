@@ -1,25 +1,25 @@
 export const storageCtrl = {
-  storeItem: function (item) {
+  storeItem: (item) => {
     let items;
-    // Check if any items in ls
+    // Проверить есть ли уже данные в хранилище
     if (localStorage.getItem("items") === null) {
       items = [];
-      // Push new item
+      // Добавь новый item, если есть
       items.push(item);
       // Set ls
       localStorage.setItem("items", JSON.stringify(items));
     } else {
-      // Get what is already in ls
+      // Получаем то что уже есть хранилище
       items = JSON.parse(localStorage.getItem("items"));
 
-      // Push new item
+      // И добавляем новую сущность
       items.push(item);
 
-      // Re set ls
+      // Обновляем содержимое хранилища
       localStorage.setItem("items", JSON.stringify(items));
     }
   },
-  getItemsFromStorage: function () {
+  getItemsFromStorage: () => {
     let items;
     if (localStorage.getItem("items") === null) {
       items = [];
@@ -28,27 +28,27 @@ export const storageCtrl = {
     }
     return items;
   },
-  updateItemStorage: function (updatedItem) {
+  updateItemStorage: (updatedItem) => {
     let items = JSON.parse(localStorage.getItem("items"));
 
-    items.forEach(function (item, index) {
+    items.forEach((item, index) => {
       if (updatedItem.id === item.id) {
         items.splice(index, 1, updatedItem);
       }
     });
     localStorage.setItem("items", JSON.stringify(items));
   },
-  deleteItemFromStorage: function (id) {
+  deleteItemFromStorage: (id) => {
     let items = JSON.parse(localStorage.getItem("items"));
 
-    items.forEach(function (item, index) {
+    items.forEach((item, index) => {
       if (id === item.id) {
         items.splice(index, 1);
       }
     });
     localStorage.setItem("items", JSON.stringify(items));
   },
-  clearItemsFromStorage: function () {
+  clearItemsFromStorage: () => {
     localStorage.removeItem("items");
   },
 };
