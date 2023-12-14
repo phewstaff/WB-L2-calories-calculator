@@ -19,12 +19,8 @@
   <body class="col">
     <!-- Navbar -->
     <nav class="">
-      <label for="progress">Daily goal progress:</label>
-
-      <progress id="progress" max="0" value="0"></progress>
-
       <div class="nav-wrapper">
-        <div class="container justify-between row align-center">
+        <div class="justify-between row align-center">
           <a href="#" class="logo">calorie tracker</a>
           <ul class="">
             <li><a href="#" class="clear-btn">Clear All</a></li>
@@ -32,12 +28,16 @@
         </div>
       </div>
     </nav>
+    <div>
+      <label for="progress">Daily goal progress:</label>
+      <progress id="progress" max="0" value="0"></progress>
+    </div>
 
     <div class="container">
       <!-- modal -->
       <dialog id="daily-goal">
-        <form method="dialog">
-          <section>
+        <form class="col" method="dialog">
+          <section class="Input">
             <label for="daily-goal-input">Type your daily calories goal:</label>
             <input type="number" id="daily-goal-input" />
           </section>
@@ -54,19 +54,21 @@
         <div class="card-content">
           <span class="card-title">Add Meal / Food Item</span>
           <form class="col">
-            <div class="col">
-              <div class="input-field col">
-                <input type="text" placeholder="Add Item" id="item-name" />
+            <div class="form-container">
+              <div class="input-field Input col">
                 <label for="item-name">Meal</label>
+                <input type="text" placeholder="Add Item" id="item-name" />
               </div>
-              <div class="input-field col">
+              <div class="input-field Input col">
+                <label for="item-calories">Calories</label>
                 <input
                   type="number"
                   placeholder="Add Calories"
                   id="item-calories"
                 />
-                <label for="item-calories">Calories</label>
               </div>
+            </div>
+            <div class="buttons-container">
               <button class="add-btn blue">
                 <i class="fa fa-plus"></i> Add Meal
               </button>
@@ -115,6 +117,7 @@
       </ul>
     </div>
 
+    <canvas id="pie" width="800" height="500"></canvas>
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>
