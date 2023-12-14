@@ -2,6 +2,7 @@ import { storageCtrl } from "./storageController.js";
 import { ItemCtrl } from "./item-controller";
 import { UICtrl } from "./ui-controller";
 import { goalDialogModal } from "./goalModal.js";
+import { drawPieChart } from "./diagram.js";
 
 const App = (function (ItemCtrl, storageCtrl, UICtrl) {
   const loadEventListeners = () => {
@@ -57,6 +58,9 @@ const App = (function (ItemCtrl, storageCtrl, UICtrl) {
 
       // Сохранить в localStorage
       storageCtrl.storeItem(newItem);
+
+      const items = ItemCtrl.getItems();
+      drawPieChart(items);
 
       // Очистить поля
       UICtrl.clearInput();
@@ -129,6 +133,9 @@ const App = (function (ItemCtrl, storageCtrl, UICtrl) {
 
     UICtrl.clearEditState();
 
+    const items = ItemCtrl.getItems();
+    drawPieChart(items);
+
     e.preventDefault();
   };
 
@@ -153,6 +160,9 @@ const App = (function (ItemCtrl, storageCtrl, UICtrl) {
 
     UICtrl.clearEditState();
 
+    const items = ItemCtrl.getItems();
+    drawPieChart(items);
+
     e.preventDefault();
   };
 
@@ -176,6 +186,9 @@ const App = (function (ItemCtrl, storageCtrl, UICtrl) {
 
     // Скрыть UL
     UICtrl.hideList();
+
+    const items = ItemCtrl.getItems();
+    drawPieChart(items);
   };
 
   // Общие методы App
@@ -193,6 +206,8 @@ const App = (function (ItemCtrl, storageCtrl, UICtrl) {
         // Отображаем актуальные данные на странице
         UICtrl.populateItemList(items);
       }
+
+      drawPieChart(items);
 
       // Get total calories
       const totalCalories = ItemCtrl.getTotalCalories();
