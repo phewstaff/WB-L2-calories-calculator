@@ -18,6 +18,14 @@ export const drawPieChart = function (data) {
   ];
 
   const canvas = document.getElementById("pie");
+  if (data.length !== 0) {
+    canvas.classList.remove("hide");
+    console.log(1);
+  } else {
+    canvas.classList.add("hide");
+    console.log(2);
+  }
+
   const ctx = canvas.getContext("2d");
   const x = canvas.width / 2;
   const y = canvas.height / 2;
@@ -27,7 +35,7 @@ export const drawPieChart = function (data) {
     total = getTotal(data);
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#ffffff";
+  ctx.fillStyle = "#dde1e2";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.strokeStyle = "#000000";
 

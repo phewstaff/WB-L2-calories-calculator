@@ -96,3 +96,19 @@
 }
 
 /* --------------------------------------------------------------------- */
+
+.blue {
+  background-color: #646cff;
+}
+
+.orange {
+  background-color: bisque;
+}
+
+.red {
+  background-color: tomato;
+}
+
+.hide {
+  display: none;
+}

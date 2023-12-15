@@ -6,18 +6,33 @@
   font-weight: 400;
 
   color: #213547;
-  background-color: #ffffff;
+  background: #dde1e2;
 
   font-synthesis: none;
-  -rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+.nav-list {
+  display: flex;
+  gap: 8px;
 }
 
 a {
   font-weight: 500;
   color: #646cff;
-  -decoration: inherit;
+  text-decoration: inherit;
 }
 a:hover {
   color: #747bff;
@@ -25,7 +40,7 @@ a:hover {
 
 body {
   margin: 0;
-  padding: 0 38px;
+  padding: 0;
   display: flex;
 
   min-width: 320px;
@@ -42,10 +57,6 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
-
-.card {
-  padding: 2em;
 }
 
 .grey {
@@ -74,7 +85,6 @@ button:focus-visible {
 dialog {
   border: none;
   border-radius: 16px;
-  box-shadow: 10px 5px 50px rgb(195, 193, 193);
   &::backdrop {
     background: black;
     opacity: 0.2;
@@ -98,24 +108,6 @@ dialog {
 
 /* items -------------------------------- ------------------------------------------------------------------------------------------------ */
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 10px;
-}
-
-body {
-  width: 100vw;
-  height: 100vh;
-
-  font-size: 1.6rem;
-  line-height: 1.8;
-}
-
 .form {
   color: #455a64;
   max-width: 80%;
@@ -128,13 +120,8 @@ input {
   color: inherit;
   width: 100%;
   font-family: inherit;
-  font-size: 2.1rem;
-  font-weight: inherit;
-  line-height: 1.8;
-  border: none;
-  border-bottom: solid 1px #213547;
-  border-radius: 0.4rem;
-  transition: box-shadow 300ms;
+  font-size: 1.3rem;
+  border: solid 1px #a3b1bc;
 }
 
 input::placeholder {
@@ -143,13 +130,93 @@ input::placeholder {
 
 input:focus {
   outline: none;
-  box-shadow: 0.2rem 0.8rem 1.6rem #777779;
 }
 
 #item-calories {
   margin-bottom: 16px;
 }
 
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #646cff;
+  padding: 0 18px;
+
+  & a,
+  & li {
+    color: white;
+  }
+}
+
+.container {
+  flex: 1;
+}
+
+.card {
+  max-width: 600px;
+  width: 100%;
+}
+
+.progress-container {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  & progress {
+    width: 100%;
+    min-height: 50px;
+  }
+}
+
 .form-container {
   display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-btn {
+  width: 100%;
+}
+
+.collection {
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  max-width: 600px;
+  width: 100%;
+}
+
+.collection-item {
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 50px;
+  background-color: white;
+  border: #c8c9ca 1px solid;
+
+  & :last-child {
+    margin-left: auto;
+  }
+}
+
+canvas {
+  height: 300px;
+}
+
+.wrapper {
+  justify-content: space-between;
+}
+
+h3 {
+  text-align: center;
+}
+
+@media (max-width: 850px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  canvas {
+    height: 300px;
+  }
 }

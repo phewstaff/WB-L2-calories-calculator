@@ -18,83 +18,84 @@
 
   <body class="col">
     <!-- Navbar -->
-    <nav class="">
-      <div class="nav-wrapper">
-        <div class="justify-between row align-center">
-          <a href="#" class="logo">calorie tracker</a>
-          <ul class="">
-            <li><a href="#" class="clear-btn">Clear All</a></li>
-          </ul>
-        </div>
-      </div>
+    <nav class="justify-between row align-center">
+      <a href="#" class="logo">CALORIES TRACKER</a>
+      <ul class="nav-list">
+        <li>
+          <button id="goal-button" class="goal-button">
+            goal for today: <span class="goal">0</span> calories
+          </button>
+        </li>
+        <li><button class="clear-btn">Clear All</button></li>
+      </ul>
     </nav>
-    <div>
-      <label for="progress">Daily goal progress:</label>
-      <progress id="progress" max="0" value="0"></progress>
-    </div>
 
-    <div class="container">
-      <!-- modal -->
-      <dialog id="daily-goal">
-        <form class="col" method="dialog">
-          <section class="Input">
-            <label for="daily-goal-input">Type your daily calories goal:</label>
-            <input type="number" id="daily-goal-input" />
-          </section>
-          <menu>
-            <button id="cancel-dialog" type="reset">Cancel</button>
-            <button id="add-daily-goal" type="submit">Confirm</button>
-          </menu>
-        </form>
-      </dialog>
-
-      <!-- Form Card -->
-
-      <div class="card">
-        <div class="card-content">
-          <span class="card-title">Add Meal / Food Item</span>
-          <form class="col">
-            <div class="form-container">
-              <div class="input-field Input col">
-                <label for="item-name">Meal</label>
-                <input type="text" placeholder="Add Item" id="item-name" />
-              </div>
-              <div class="input-field Input col">
-                <label for="item-calories">Calories</label>
-                <input
-                  type="number"
-                  placeholder="Add Calories"
-                  id="item-calories"
-                />
-              </div>
-            </div>
-            <div class="buttons-container">
-              <button class="add-btn blue">
-                <i class="fa fa-plus"></i> Add Meal
-              </button>
-              <button class="update-btn orange">
-                <i class="fa fa-pencil-square-o"></i> Update Meal
-              </button>
-              <button class="delete-btn red">
-                <i class="fa fa-remove"></i> Delete Meal
-              </button>
-              <button class="back-btn grey">
-                <i class="fa fa-chevron-circle-left"></i> Back
-              </button>
-            </div>
+    <div class="row wrapper">
+      <div class="container flex justify-center align-center">
+        <!-- modal -->
+        <dialog id="daily-goal">
+          <form class="col" method="dialog">
+            <section class="Input">
+              <label for="daily-goal-input"
+                >Type your daily calories goal:</label
+              >
+              <input type="number" id="daily-goal-input" />
+            </section>
+            <menu>
+              <button id="cancel-dialog" type="reset">Cancel</button>
+              <button id="add-daily-goal" type="submit">Confirm</button>
+            </menu>
           </form>
+        </dialog>
+
+        <!-- Form Card -->
+
+        <div class="progress-container col">
+          <label for="progress">Daily goal progress:</label>
+          <progress id="progress" max="0" value="0"></progress>
         </div>
-      </div>
 
-      <!-- Calorie Count -->
-      <h3 class="">Total Calories: <span class="total-calories">0</span></h3>
-      <button id="goal-button" class="goal-button">
-        goal for today: <span class="goal">0</span> calories
-      </button>
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Add Meal / Food Item</span>
+            <form class="col">
+              <div class="form-container">
+                <div class="input-field Input col">
+                  <label for="item-name">Meal</label>
+                  <input type="text" placeholder="Add Item" id="item-name" />
+                </div>
+                <div class="input-field Input col">
+                  <label for="item-calories">Calories</label>
+                  <input
+                    type="number"
+                    placeholder="Add Calories"
+                    id="item-calories"
+                  />
+                </div>
+              </div>
+              <div class="buttons-container">
+                <button class="add-btn blue">
+                  <i class="fa fa-plus"></i> Add Meal
+                </button>
+                <button class="update-btn orange">
+                  <i class="fa fa-pencil-square-o"></i> Update Meal
+                </button>
+                <button class="delete-btn red">
+                  <i class="fa fa-remove"></i> Delete Meal
+                </button>
+                <button class="back-btn grey">
+                  <i class="fa fa-chevron-circle-left"></i> Back
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
 
-      <!-- Item List -->
-      <ul id="item-list" class="collection">
-        <!--
+        <!-- Calorie Count -->
+
+        <!-- Item List -->
+        <ul id="item-list" class="collection col">
+          <!--
       <li class="collection-item" id="item-0">
         <strong>Steak Dinner: </strong> <em>1200 Calories</em>
         <a href="#" class="secondary-content">
@@ -114,10 +115,15 @@
         </a>
       </li>
     -->
-      </ul>
+        </ul>
+      </div>
+      <div>
+        <h3 class="">Total Calories: <span class="total-calories">0</span></h3>
+
+        <canvas class="hide" id="pie" width="800" height="500"></canvas>
+      </div>
     </div>
 
-    <canvas id="pie" width="800" height="500"></canvas>
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>

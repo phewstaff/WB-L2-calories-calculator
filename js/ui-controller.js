@@ -44,8 +44,6 @@ export const UICtrl = (function () {
       };
     },
     addListItem: (item) => {
-      // Покажи список
-      document.querySelector(UISelectors.itemList).style.display = "block";
       // Создай элемент списка
       const li = document.createElement("li");
       // Добавь Класс
