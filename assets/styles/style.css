@@ -208,6 +208,7 @@ canvas {
 }
 
 h3 {
+  min-width: 480px;
   text-align: center;
 }
 

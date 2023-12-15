@@ -184,9 +184,6 @@ const App = (function (ItemCtrl, storageCtrl, UICtrl) {
     // Очистить из хранилища локальных данных
     storageCtrl.clearItemsFromStorage();
 
-    // Скрыть UL
-    UICtrl.hideList();
-
     const items = ItemCtrl.getItems();
     drawPieChart(items);
   };
@@ -200,11 +197,9 @@ const App = (function (ItemCtrl, storageCtrl, UICtrl) {
       // Получаем актуальные данные
       const items = ItemCtrl.getItems();
 
-      if (items.length === 0) {
-        UICtrl.hideList();
-      } else {
-        // Отображаем актуальные данные на странице
+      if (items.length !== 0) {
         UICtrl.populateItemList(items);
+        // Отображаем актуальные данные на странице
       }
 
       drawPieChart(items);
